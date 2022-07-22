@@ -4,7 +4,7 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 # How it Works
 - First go to the [Wordle website](https://www.nytimes.com/games/wordle/index.html) on NyTimes
 - Hit `New Game` in `Wordle Solver`, it'll give you a starting word.
-- Use that work in Wordle and report back the results.
+- Use that word in Wordle and report back the results.
 - You report results by choosing a color for each letter that Wordle Solver suggested. This helps the Solver choose its next guess appropriately.
 
 # Strategy
