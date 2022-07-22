@@ -4,3 +4,20 @@ h1 {
     text-align: center;
     margin: 20px;
 }
+
+#main_game {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -300px 0 0 -150px;
+}
+
+.box {
+    border: black;
+    border-style: solid;
+    width:  60px;
+    height: 60px;
+}
