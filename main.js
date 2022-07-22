@@ -7,7 +7,12 @@ function new_game() {
     }
 
     // Populate the first row with a new guess
-
+    var first_word = dictionary[Math.floor(Math.random()*dictionary.length)];
+    document.getElementById("00").value = first_word[0];
+    document.getElementById("01").value = first_word[1];
+    document.getElementById("02").value = first_word[2];
+    document.getElementById("03").value = first_word[3];
+    document.getElementById("04").value = first_word[4];
 }
 
 dictionary = [
