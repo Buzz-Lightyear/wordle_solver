@@ -17,9 +17,31 @@ h1 {
     margin: -300px 0 0 -150px;
 }
 
+.gray_button {
+    background-color: #787c7f;
+    height: 15px;
+    width: 17px;
+}
+
+.yellow_button {
+    background-color: #c8b653;
+    height: 15px;
+    width: 17px;
+}
+
+.green_button {
+    background-color: #6ca965;
+    height: 15px;
+    width: 17px;
+}
+
 .box {
     border: black;
     border-style: solid;
     width:  60px;
     height: 60px;
+}
+
+td{
+    padding: 3px;
 }
