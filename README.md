@@ -13,6 +13,7 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 - Based on the results from each guess, it filters down its list and repeats this process until the game ends.
 
 # Future Improvements
+- A button to regenerate a specific guess
 - Force single character per text area and auto tab to next one.
 - When hitting backspace, jump between text areas.
 - Wordle Solver always picks the most popular word for each guess
