@@ -61,25 +61,25 @@ function satisfies_constraint(word, user_info) {
             return false;
         }
 
-        // We have a gray letter at position i but our word contains it there
-        if (i in user_info['gray'] && word[i] == user_info['gray'][i]) {
+        // We have a gray letter at position i but our word contains it.
+        if (i in user_info['gray'] && word.indexOf(user_info['gray'][i]) > -1 ) {
             return false;
         }
 
         if (i in user_info['yellow']) {
             // We have a yellow letter at position i but our word contains it there
-            if (word[i] == user_info['yellow'][i]) {
+            if (word[i] === user_info['yellow'][i]) {
                 return false;
             }
 
             // We still need to ensure that the yellow letter is present elsewhere
             found_yellow_letter_elsewhere = false;
             for (var j = 0; j < 5; j++) {
-                if (i == j) {
+                if (i === j) {
                     // We don't want to check position i
                     continue;
                 }
-                if (word[j] = user_info['yellow'][i]) {
+                if (word[j] === user_info['yellow'][i]) {
                     found_yellow_letter_elsewhere = true;
                     break;
                 }
