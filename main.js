@@ -32,21 +32,27 @@ function next_word(row) {
         if (box_color === "rgb(108, 169, 101)") {
             // Green Box
             user_info['green'][i] = letter;
-            window.alert("Green box at " + i.toString() + " in row: " + row);
         } else if (box_color === "rgb(200, 182, 83)") {
             // Yellow Box
             user_info['yellow'][i] = letter;
-            window.alert("Yellow box at " + i.toString() + " in row: " + row);
         } else {
             // Gray Box
             user_info['gray'][i] = letter;
-            window.alert("Gray box at " + i.toString() + " in row: " + row);
         }
     }
 
-    // Once I gather all the info, I'll pick the next word using all the clues
-    // That way I'll get all the info I need in every clue response
-    // I need to filter the dicitonary with the clues I receive and pick the next word   
+    word = filter_words(dictionary, user_info);
+    populate_next_row((parseInt(row) + 1).toString(), word);  
+}
+
+function filter_words(dictionary, user_info) {
+    return "cloth";
+}
+
+function populate_next_row(row, word) {
+    for (var i = 0; i < 5; i++) { 
+        document.getElementById(row + i.toString()).value = word[i];
+    }
 }
 
 function validate_row(row) {
