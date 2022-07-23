@@ -12,6 +12,9 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 - It chooses a word at random as its first guess.
 - Based on the results from each guess, it filters down its list and repeats this process until the game ends.
 
+# Bugs
+- Doesn't keep track of historical clues (relevant for yellow)
+
 # Future Improvements
 - Validate that Next Word button can only be successfully hit when all colors are filled in for a row.
 - A button to regenerate a specific guess
