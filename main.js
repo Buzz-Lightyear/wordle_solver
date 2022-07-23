@@ -17,9 +17,33 @@ function new_game() {
 
 function next_word(row) {
     validate_row(row)
+
+    user_info = {
+        'green': {},
+        'yellow': {},
+        'gray': {}
+    };
+
     for (var i = 0; i < 5; i++) {
-        box = document.getElementById()
+        box = document.getElementById(row + i.toString());
+        letter = box.value;
+        box_color = box.style.backgroundColor;
+
+        if (box_color === "#6ca965") {
+            // Green Box
+            user_info['green'][i] = letter;
+        } else if (box_color === "#c8b653") {
+            // Yellow Box
+            user_info['yellow'][i] = letter;
+        } else {
+            // Gray Box
+            user_info['gray'][i] = letter;
+        }
     }
+
+    // Once I gather all the info, I'll pick the next word using all the clues
+    // That way I'll get all the info I need in every clue response
+    // I need to filter the dicitonary with the clues I receive and pick the next word   
 }
 
 function validate_row(row) {
@@ -28,6 +52,9 @@ function validate_row(row) {
     // If not, we haven't received all the info from the user yet.
     // If the info is incomplete, politely remind the user that they need to
     // color all the boxes.
+
+    // Hint: window.alert("Please fill out the colors for all boxes in the row.")
+    // will send a helpful popup message.
 }
 
 function color(id, bg_color) {
