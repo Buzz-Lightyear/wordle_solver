@@ -29,15 +29,18 @@ function next_word(row) {
         letter = box.value;
         box_color = box.style.backgroundColor;
 
-        if (box_color === "#6ca965") {
+        if (box_color === "rgb(108, 169, 101)") {
             // Green Box
             user_info['green'][i] = letter;
-        } else if (box_color === "#c8b653") {
+            window.alert("Green box at " + i.toString() + " in row: " + row);
+        } else if (box_color === "rgb(200, 182, 83)") {
             // Yellow Box
             user_info['yellow'][i] = letter;
+            window.alert("Yellow box at " + i.toString() + " in row: " + row);
         } else {
             // Gray Box
             user_info['gray'][i] = letter;
+            window.alert("Gray box at " + i.toString() + " in row: " + row);
         }
     }
 
