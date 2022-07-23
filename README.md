@@ -21,4 +21,3 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 - Wordle Solver always picks the most popular word for each guess
 - Host Wordle as a game server wherein Bots can compete against each other over 50 games and the bot with the lowest average step count wins.
 - Make UI responsive
-- Remove the need for gray boxes
