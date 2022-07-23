@@ -13,7 +13,7 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 - Based on the results from each guess, it filters down its list and repeats this process until the game ends.
 
 # Bugs
-- Doesn't keep track of historical clues (relevant for yellow)
+- Doesn't keep track of historical clues (relevant for yellow and gray)
 
 # Future Improvements
 - Validate that Next Word button can only be successfully hit when all colors are filled in for a row.
@@ -23,5 +23,3 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 - When hitting backspace, jump between text areas.
 - Wordle Solver always picks the most popular word for each guess
 - Host Wordle as a game server wherein Bots can compete against each other over 50 games and the bot with the lowest average step count wins.
-- Make UI responsive
-- If we run out of words to suggest, politely inform the user

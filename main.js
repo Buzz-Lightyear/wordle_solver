@@ -15,14 +15,14 @@ function new_game() {
     document.getElementById("04").value = first_word[4];
 }
 
+user_info = {
+    'green': {},
+    'yellow': {},
+    'gray': []
+};
+
 function next_word(row) {
     validate_row(row)
-
-    user_info = {
-        'green': {},
-        'yellow': {},
-        'gray': {}
-    };
 
     for (var i = 0; i < 5; i++) {
         box = document.getElementById(row + i.toString());
@@ -31,13 +31,21 @@ function next_word(row) {
 
         if (box_color === "rgb(108, 169, 101)") {
             // Green Box
-            user_info['green'][i] = letter;
+            if (i in user_info['green']) {
+                user_info['green'][i].push(letter)
+            } else {
+                user_info['green'][i] = [letter];
+            }
         } else if (box_color === "rgb(200, 182, 83)") {
             // Yellow Box
-            user_info['yellow'][i] = letter;
+            if (i in user_info['yellow']) {
+                user_info['yellow'][i].push(letter)
+            } else {
+                user_info['yellow'][i] = [letter];
+            }
         } else {
             // Gray Box
-            user_info['gray'][i] = letter;
+            user_info['gray'].push(letter);
         }
     }
 
@@ -45,10 +53,16 @@ function next_word(row) {
     populate_next_row((parseInt(row) + 1).toString(), word);  
 }
 
+suggested_words = {}
 function filter_words(dictionary, user_info) {
     // Return the first word that satisfies all constraints
     for (const word of dictionary) {
         if (satisfies_constraint(word, user_info)) {
+            if (word in suggested_words) {
+                // Can't suggest same word twice
+                continue;
+            }
+            suggested_words[word] = true;
             return word;
         }
     }
@@ -57,18 +71,18 @@ function filter_words(dictionary, user_info) {
 function satisfies_constraint(word, user_info) {
     for (var i = 0; i < 5; i++) {
         // We have a green letter at position i but our word doesn't
-        if (i in user_info['green'] && word[i] != user_info['green'][i]) {
+        if (i in user_info['green'] && user_info['green'][i].indexOf(word[i]) <= -1) {
             return false;
         }
 
-        // We have a gray letter at position i but our word contains it.
-        if (i in user_info['gray'] && word.indexOf(user_info['gray'][i]) > -1 ) {
+        // Our word contains a gray letter at this position
+        if (user_info['gray'].indexOf(word[i]) > -1) {
             return false;
         }
 
         if (i in user_info['yellow']) {
             // We have a yellow letter at position i but our word contains it there
-            if (word[i] === user_info['yellow'][i]) {
+            if (user_info['yellow'][i].indexOf(word[i]) > -1) {
                 return false;
             }
 
@@ -79,7 +93,7 @@ function satisfies_constraint(word, user_info) {
                     // We don't want to check position i
                     continue;
                 }
-                if (word[j] === user_info['yellow'][i]) {
+                if (user_info['yellow'][i].indexOf(word[j]) > -1) {
                     found_yellow_letter_elsewhere = true;
                     break;
                 }
@@ -95,8 +109,19 @@ function satisfies_constraint(word, user_info) {
 }
 
 function populate_next_row(row, word) {
+    error = false;
     for (var i = 0; i < 5; i++) { 
-        document.getElementById(row + i.toString()).value = word[i];
+        try {
+            document.getElementById(row + i.toString()).value = word[i];
+          }
+          catch(err) {
+            window.alert("We ran out of suggestions, sorry!");
+            error = true;
+            break;
+          }
+    }
+    if (error) {
+        window.location.reload();
     }
 }
 
