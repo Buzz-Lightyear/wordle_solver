@@ -15,6 +15,10 @@ function new_game() {
     document.getElementById("04").value = first_word[4];
 }
 
+function color(id, bg_color) {
+    document.getElementById(id).style.backgroundColor = bg_color;
+}
+
 dictionary = [
     "which",
     "there",
