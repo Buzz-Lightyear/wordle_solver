@@ -772,6 +772,7 @@ dictionary = [
     "shelf",
     "walks",
     "midst",
+    "midge",
     "crack",
     "print",
     "tales",
