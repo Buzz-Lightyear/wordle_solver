@@ -15,6 +15,21 @@ function new_game() {
     document.getElementById("04").value = first_word[4];
 }
 
+function next_word(row) {
+    validate_row(row)
+    for (var i = 0; i < 5; i++) {
+        box = document.getElementById()
+    }
+}
+
+function validate_row(row) {
+    // Implement this Ty :)
+    // Essentially, every box in this row needs to have a background color set
+    // If not, we haven't received all the info from the user yet.
+    // If the info is incomplete, politely remind the user that they need to
+    // color all the boxes.
+}
+
 function color(id, bg_color) {
     document.getElementById(id).style.backgroundColor = bg_color;
 }

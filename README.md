@@ -13,7 +13,9 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 - Based on the results from each guess, it filters down its list and repeats this process until the game ends.
 
 # Future Improvements
+- Validate that Next Word button can only be successfully hit when all colors are filled in for a row.
 - A button to regenerate a specific guess
+- Don't use words that contain repeated letters until you absolutely have to.
 - Force single character per text area and auto tab to next one.
 - When hitting backspace, jump between text areas.
 - Wordle Solver always picks the most popular word for each guess
