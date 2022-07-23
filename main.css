@@ -5,7 +5,7 @@
     z-index: 15;
     top: 50%;
     left: 50%;
-    margin: -300px 0 0 -150px;
+    margin: -300px 0 0 -200px;
 }
 
 .gray_button {
@@ -41,7 +41,7 @@ td{
 }
 
 #new_game {
-    margin-top: -20px;
+    margin-top: -50px;
     margin-bottom: 15px;
     height: 60px;
     width: 250px;
@@ -55,8 +55,8 @@ td{
 
 .next_word {
     margin-bottom: 5px;
-    height: 40px;
-    width: 150px;
+    height: 60px;
+    width: 60px;
     margin-left: 5px;
     font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
