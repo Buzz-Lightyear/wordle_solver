@@ -46,7 +46,52 @@ function next_word(row) {
 }
 
 function filter_words(dictionary, user_info) {
-    return "cloth";
+    // Return the first word that satisfies all constraints
+    for (const word of dictionary) {
+        if (satisfies_constraint(word, user_info)) {
+            return word;
+        }
+    }
+}
+
+function satisfies_constraint(word, user_info) {
+    for (var i = 0; i < 5; i++) {
+        // We have a green letter at position i but our word doesn't
+        if (i in user_info['green'] && word[i] != user_info['green'][i]) {
+            return false;
+        }
+
+        // We have a gray letter at position i but our word contains it there
+        if (i in user_info['gray'] && word[i] == user_info['gray'][i]) {
+            return false;
+        }
+
+        if (i in user_info['yellow']) {
+            // We have a yellow letter at position i but our word contains it there
+            if (word[i] == user_info['yellow'][i]) {
+                return false;
+            }
+
+            // We still need to ensure that the yellow letter is present elsewhere
+            found_yellow_letter_elsewhere = false;
+            for (var j = 0; j < 5; j++) {
+                if (i == j) {
+                    // We don't want to check position i
+                    continue;
+                }
+                if (word[j] = user_info['yellow'][i]) {
+                    found_yellow_letter_elsewhere = true;
+                    break;
+                }
+            }
+
+            if (!found_yellow_letter_elsewhere) {
+                // We couldn't find the yellow letter in another position
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 function populate_next_row(row, word) {
