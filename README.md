@@ -14,8 +14,11 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 
 # Bugs
 - Doesn't keep track of historical clues (relevant for yellow and gray)
+- "YOURN" caused a ran-out-of-suggestions after no inputs
+- "APHID" ran out of suggestions
 
 # Future Improvements
+- Add literally all 5 letter words that exist to maximize chances of winning.
 - Validate that Next Word button can only be successfully hit when all colors are filled in for a row.
 - A button to regenerate a specific guess
 - Don't use words that contain repeated letters until you absolutely have to.
