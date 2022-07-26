@@ -13,7 +13,7 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 - Based on the results from each guess, it filters down its list and repeats this process until the game ends.
 
 # Bugs
-- When a letter repeats, our filtering breaks down sometimes
+- When a letter repeats, our filtering breaks down sometimes ("cinch" is the answer)
 ![Bug](images/bug.png)
 
 # Future Improvements
