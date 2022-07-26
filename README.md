@@ -13,9 +13,8 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 - Based on the results from each guess, it filters down its list and repeats this process until the game ends.
 
 # Bugs
-- Doesn't keep track of historical clues (relevant for yellow and gray)
-- "YOURN" caused a ran-out-of-suggestions after no inputs
-- "APHID" ran out of suggestions
+- When a letter repeats, our filtering breaks down sometimes
+![Bug](images/bug.png)
 
 # Future Improvements
 - Add literally all 5 letter words that exist to maximize chances of winning.
