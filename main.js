@@ -15,7 +15,6 @@ function new_game() {
       first_word = dictionary[Math.floor(Math.random()*dictionary.length)];
     } while (is_bad_first_word(first_word));
 
-
     document.getElementById("00").value = first_word[0];
     document.getElementById("01").value = first_word[1];
     document.getElementById("02").value = first_word[2];
@@ -52,8 +51,6 @@ user_info = {
 };
 
 function next_word(row) {
-    validate_row(row)
-
     for (var i = 0; i < 5; i++) {
         box = document.getElementById(row + i.toString());
         letter = box.value;
@@ -124,6 +121,10 @@ function satisfies_constraint(word, user_info) {
                     continue;
                 }
                 if (user_info['yellow'][i].indexOf(word[j]) > -1) {
+                    if (j in user_info['green']) {
+                        // We wan't to find the yellow letter in a non-green space
+                        continue;
+                    }
                     found_yellow_letter_elsewhere = true;
                     break;
                 }
@@ -153,17 +154,6 @@ function populate_next_row(row, word) {
     if (error) {
         window.location.reload();
     }
-}
-
-function validate_row(row) {
-    // Implement this Ty :)
-    // Essentially, every box in this row needs to have a background color set
-    // If not, we haven't received all the info from the user yet.
-    // If the info is incomplete, politely remind the user that they need to
-    // color all the boxes.
-
-    // Hint: window.alert("Please fill out the colors for all boxes in the row.")
-    // will send a helpful popup message.
 }
 
 function color(id, bg_color) {
@@ -3698,7 +3688,6 @@ dictionary = [
     "louis",
     "quint",
     "clunk",
-    "raped",
     "salvo",
     "diode",
     "matey",
