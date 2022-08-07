@@ -6,13 +6,43 @@ function new_game() {
         text_boxes[i].style.backgroundColor="white";
     }
 
-    // Populate the first row with a new guess
-    var first_word = dictionary[Math.floor(Math.random()*dictionary.length)];
+    // Populate the first row with a new guess that contains
+    // 2 vowels, no repeated letters and last letter can't be 'S'
+    // Since wordle words rarely are plurals
+
+    var first_word;
+    do {
+      first_word = dictionary[Math.floor(Math.random()*dictionary.length)];
+    } while (is_bad_first_word(first_word));
+
+
     document.getElementById("00").value = first_word[0];
     document.getElementById("01").value = first_word[1];
     document.getElementById("02").value = first_word[2];
     document.getElementById("03").value = first_word[3];
     document.getElementById("04").value = first_word[4];
+}
+
+function is_bad_first_word(word) {
+    if (word[4].toLowerCase() == 's') {
+        return true;
+    }
+    var letters_seen = new Set();
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+    var vowel_count = 0;
+    for (var i = 0; i < word.length; i++) {
+        if (letters_seen.has(word[i])) {
+            return true;
+        }
+        letters_seen.add(word[i]);
+        if (vowels.has(word[i].toLowerCase())) {
+            vowel_count++;
+        }
+    }
+    if (vowel_count < 2) {
+        return true;
+    }
+    return false;
 }
 
 user_info = {
