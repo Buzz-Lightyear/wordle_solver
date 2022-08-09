@@ -14,6 +14,8 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 
 # Bugs
 - When a letter repeats, our filtering breaks down sometimes ("cinch" is the answer)
+- "SHOOT" as first word with "SHOUT" as answer
+- "WATER" as first word with "PATTY" as answer
 ![Bug](images/bug.png)
 
 # Future Improvements
