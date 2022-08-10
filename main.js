@@ -1,3 +1,4 @@
+suggested_words = {}
 function new_game() {
     // Clear all text areas
     text_boxes = document.getElementsByClassName("box");
@@ -5,6 +6,9 @@ function new_game() {
         text_boxes[i].value="";
         text_boxes[i].style.backgroundColor="white";
     }
+
+    // Clear set of suggested words
+    suggested_words = {}
 
     // Populate the first row with a new guess that contains
     // 2 vowels, no repeated letters and last letter can't be 'S'
@@ -14,7 +18,7 @@ function new_game() {
     do {
       first_word = dictionary[Math.floor(Math.random()*dictionary.length)];
     } while (is_bad_first_word(first_word));
-
+    first_word = "alike"
     document.getElementById("00").value = first_word[0];
     document.getElementById("01").value = first_word[1];
     document.getElementById("02").value = first_word[2];
@@ -80,7 +84,6 @@ function next_word(row) {
     populate_next_row((parseInt(row) + 1).toString(), word);  
 }
 
-suggested_words = {}
 function filter_words(dictionary, user_info) {
     // Return the first word that satisfies all constraints
     for (const word of dictionary) {
