@@ -97,14 +97,15 @@ function filter_words(dictionary, user_info) {
 
 function satisfies_constraint(word, user_info) {
     for (var i = 0; i < 5; i++) {
-        // We have a green letter at position i but our word doesn't
-        if (i in user_info['green'] && user_info['green'][i].indexOf(word[i]) <= -1) {
-            return false;
-        }
-
-        // Our word contains a gray letter at this position
-        if (user_info['gray'].indexOf(word[i]) > -1) {
-            return false;
+        // We have a green letter at position i
+        if (i in user_info['green']){
+            if (user_info['green'][i].indexOf(word[i]) <= -1) {
+                // Our word doesn't contain a green letter at this position
+                return false;
+            } else {
+                // Continue checking other letters
+                continue;
+            }
         }
 
         if (i in user_info['yellow']) {
@@ -130,10 +131,18 @@ function satisfies_constraint(word, user_info) {
                 }
             }
 
-            if (!found_yellow_letter_elsewhere) {
+            if (found_yellow_letter_elsewhere) {
+                continue;
+
+            } else {
                 // We couldn't find the yellow letter in another position
                 return false;
             }
+        }
+
+        // Our word contains a gray letter at this position
+        if (user_info['gray'].indexOf(word[i]) > -1) {
+            return false;
         }
     }
     return true;
