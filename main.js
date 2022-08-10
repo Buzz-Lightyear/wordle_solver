@@ -18,7 +18,7 @@ function new_game() {
     do {
       first_word = dictionary[Math.floor(Math.random()*dictionary.length)];
     } while (is_bad_first_word(first_word));
-    first_word = "alike"
+
     document.getElementById("00").value = first_word[0];
     document.getElementById("01").value = first_word[1];
     document.getElementById("02").value = first_word[2];
