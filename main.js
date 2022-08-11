@@ -147,7 +147,18 @@ function satisfies_constraint(word, user_info) {
 
         // Our word contains a gray letter at this position
         if (user_info['gray'].indexOf(word[i]) > -1) {
-            return false;
+            // If it's in a future yellow, then we're Ok
+            in_future_yellow = false;
+            for (var k = i+1; k < 5; k++) {
+                if (k in user_info['yellow'] && user_info['yellow'][k] == word[i]) {
+                    in_future_yellow = true;
+                }
+            }
+            if (in_future_yellow) {
+                continue;
+            } else {
+                return false;
+            }
         }
     }
     return true;
@@ -5933,3 +5944,21 @@ dictionary = [
     "biffy",
     "pupal"
 ]
+
+function populate_stats() {
+    for (var i = 0; i < dictionary.length; i++) {
+        answer = dictionary[i];
+        first_word = dictionary[Math.floor(Math.random()*dictionary.length)];
+        user_response = get_user_response(answer, first_word)
+    }
+}
+
+function get_user_response(answer, word) {
+    user_response = {
+        'gray': [],
+        'yellow': {},
+        'green': {}
+    }
+    //TODO : Implement this
+}
+
