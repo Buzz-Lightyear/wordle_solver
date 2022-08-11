@@ -87,17 +87,39 @@ function next_word(row) {
 }
 
 function filter_words(dictionary, user_info) {
-    // Return the first word that satisfies all constraints
+    // Return the first word that satisfies all constraints without repetitions
+    // Return a word with repetitions if it's inevitable
+    answers = []
     for (const word of dictionary) {
         if (satisfies_constraint(word, user_info)) {
             if (word in suggested_words) {
                 // Can't suggest same word twice
                 continue;
             }
-            suggested_words[word] = true;
-            return word;
+            answers.push(word)
         }
     }
+
+    for (const answer of answers) {
+        if (unique_letters(answer)) {
+            suggested_words[answer] = true;
+            return answer;
+        }
+    }
+
+    // If none of the answers have unique letters, just return the first one
+    return answers[0];
+}
+
+function unique_letters(word) {
+    letters = {}
+    for(var i = 0; i < 5; i++) {
+        if (word[i] in letters) {
+            return false;
+        }
+        letters[word[i]] = true;
+    }
+    return true;
 }
 
 function satisfies_constraint(word, user_info) {
