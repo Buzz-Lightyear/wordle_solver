@@ -13,10 +13,7 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 - Based on the results from each guess, it filters down its list and repeats this process until the game ends.
 
 # Bugs
-- When a letter repeats, our filtering breaks down sometimes ("cinch" is the answer)
-- "SHOOT" as first word with "SHOUT" as answer
-- "WATER" as first word with "PATTY" as answer
-![Bug](images/bug.png)
+- Once a letter moves from yellow to Green, we need to account for that 
 
 # Future Improvements
 - Provide an option to color a box white again as an undo

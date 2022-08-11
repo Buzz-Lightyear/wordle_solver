@@ -81,7 +81,9 @@ function next_word(row) {
     }
 
     word = filter_words(dictionary, user_info);
-    populate_next_row((parseInt(row) + 1).toString(), word);  
+    user_info['yellow'] = {}
+    user_info['green'] = {}
+    populate_next_row((parseInt(row) + 1).toString(), word); 
 }
 
 function filter_words(dictionary, user_info) {
