@@ -101,7 +101,7 @@ function filter_words(dictionary, user_info) {
     }
 
     for (const answer of answers) {
-        if (unique_letters(answer)) {
+        if (unique_letters(answer) && not_plural(answer)) {
             suggested_words[answer] = true;
             return answer;
         }
@@ -120,6 +120,10 @@ function unique_letters(word) {
         letters[word[i]] = true;
     }
     return true;
+}
+
+function not_plural(word) {
+    return word[-1] != 's'
 }
 
 function satisfies_constraint(word, user_info) {
