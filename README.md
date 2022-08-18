@@ -17,12 +17,5 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 
 # Future Improvements
 - Provide an option to color a box white again as an undo
-- Optimize the opening word to include say 2 vowels and no repeating characters.
-- Add literally all 5 letter words that exist to maximize chances of winning.
-- Validate that Next Word button can only be successfully hit when all colors are filled in for a row.
-- A button to regenerate a specific guess
-- Don't use words that contain repeated letters until you absolutely have to.
-- Force single character per text area and auto tab to next one.
-- When hitting backspace, jump between text areas.
-- Wordle Solver always picks the most popular word for each guess
+- Filter by popularity and avoid plurals
 - Host Wordle as a game server wherein Bots can compete against each other over 50 games and the bot with the lowest average step count wins.
