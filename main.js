@@ -103,14 +103,23 @@ function filter_words(dictionary, user_info) {
         }
     }
 
+    // Not plural, not past tense and all unique letters are ideal
     for (const answer of answers) {
-        if (unique_letters(answer) && not_plural(answer)) {
+        if (not_plural(answer) && not_past_tense(answer) && unique_letters(answer)) {
             suggested_words[answer] = true;
             return answer;
         }
     }
 
-    // If none of the answers have both unique letters and non-plurality, return the first non plural one
+    // Not plural and not past tense is less ideal but Ok
+    for (const answer of answers) {
+        if (not_plural(answer) && not_past_tense(word)) {
+            suggested_words[answer] = true;
+            return answer;
+        }
+    }
+
+    // Not plural is fine
     for (const answer of answers) {
         if (not_plural(answer)) {
             suggested_words[answer] = true;
@@ -118,7 +127,12 @@ function filter_words(dictionary, user_info) {
         }
     }
 
+    // Well, let's go with whatever we've got
     return answers[0];
+}
+
+function not_past_tense(word){
+    return word[-1] != 'd'
 }
 
 function unique_letters(word) {
