@@ -127,6 +127,14 @@ function filter_words(dictionary, user_info) {
         }
     }
 
+    // Not past tense is aight
+    for (const answer of answers) {
+        if (not_past_tense(answer)) {
+            suggested_words[answer] = true;
+            return answer;
+        }
+    }
+
     // Well, let's go with whatever we've got
     return answers[0];
 }
