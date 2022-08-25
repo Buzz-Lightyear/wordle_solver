@@ -30,6 +30,9 @@ function is_bad_first_word(word) {
     if (word[4].toLowerCase() == 's') {
         return true;
     }
+    if (word[4].toLowerCase() == 'd') {
+        return true;
+    }
     var letters_seen = new Set();
     const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
     var vowel_count = 0;
@@ -107,7 +110,14 @@ function filter_words(dictionary, user_info) {
         }
     }
 
-    // If none of the answers have unique letters, just return the first one
+    // If none of the answers have both unique letters and non-plurality, return the first non plural one
+    for (const answer of answers) {
+        if (not_plural(answer)) {
+            suggested_words[answer] = true;
+            return answer;
+        }
+    }
+
     return answers[0];
 }
 
