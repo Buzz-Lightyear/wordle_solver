@@ -140,7 +140,7 @@ function filter_words(dictionary, user_info) {
 }
 
 function not_past_tense(word){
-    return word[-1] != 'd'
+    return word[-1] !== 'd';
 }
 
 function unique_letters(word) {
@@ -155,7 +155,7 @@ function unique_letters(word) {
 }
 
 function not_plural(word) {
-    return word[-1] != 's'
+    return word[-1] !== 's';
 }
 
 function satisfies_constraint(word, user_info) {
