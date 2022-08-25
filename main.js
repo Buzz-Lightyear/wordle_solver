@@ -139,6 +139,22 @@ function satisfies_constraint(word, user_info) {
             }
         }
 
+        // Our word contains a gray letter at this position
+        if (user_info['gray'].indexOf(word[i]) > -1) {
+            // If it's in a future yellow, then we're Ok
+            in_future_yellow = false;
+            for (var k = i+1; k < 5; k++) {
+                if (k in user_info['yellow'] && user_info['yellow'][k] == word[i]) {
+                    in_future_yellow = true;
+                }
+            }
+            if (in_future_yellow) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+
         if (i in user_info['yellow']) {
             // We have a yellow letter at position i but our word contains it there
             if (user_info['yellow'][i].indexOf(word[i]) > -1) {
@@ -167,22 +183,6 @@ function satisfies_constraint(word, user_info) {
 
             } else {
                 // We couldn't find the yellow letter in another position
-                return false;
-            }
-        }
-
-        // Our word contains a gray letter at this position
-        if (user_info['gray'].indexOf(word[i]) > -1) {
-            // If it's in a future yellow, then we're Ok
-            in_future_yellow = false;
-            for (var k = i+1; k < 5; k++) {
-                if (k in user_info['yellow'] && user_info['yellow'][k] == word[i]) {
-                    in_future_yellow = true;
-                }
-            }
-            if (in_future_yellow) {
-                continue;
-            } else {
                 return false;
             }
         }
