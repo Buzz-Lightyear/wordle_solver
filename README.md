@@ -13,7 +13,8 @@ Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
 - Based on the results from each guess, it filters down its list and repeats this process until the game ends.
 
 # Bugs
-- Once a letter moves from yellow to Green, we need to account for that 
+- Once a letter moves from yellow to Green, we need to account for that
+- Kyrie -> Being -> While is a bug because e in pos 4 from Kyrie was yellow and While violates hard mode
 
 # Future Improvements
 - Provide an option to color a box white again as an undo
