@@ -1,5 +1,5 @@
 # App
-[wordle.fyi](https://wordle.fyi)
+[wordle.fyi](http://wordle.fyi)
 
 # Wordle Solver
 Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
