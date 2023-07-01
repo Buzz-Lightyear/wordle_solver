@@ -1,5 +1,5 @@
 # App
-[Wordle Solver]([http://wordle.fyi](https://buzz-lightyear.github.io/wordle_solver/))
+[Wordle Solver](https://buzz-lightyear.github.io/wordle_solver/)
 
 # Wordle Solver
 Code to solve [Wordle](https://www.nytimes.com/games/wordle/index.html)
